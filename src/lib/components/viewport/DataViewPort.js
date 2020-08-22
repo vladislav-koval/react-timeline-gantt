@@ -8,7 +8,6 @@ import Config from 'libs/helpers/config/Config';
 export class DataRow extends Component {
   constructor(props) {
     super(props);
-    this.dataViewPortRef = React.createRef();
   }
   render() {
     return (
@@ -77,7 +76,7 @@ export class DataViewPort extends Component {
     }
   };
   doMouseMove = (e) => {
-    this.props.onMouseMove(e, this.dataViewPortRef.current);
+    this.props.onMouseMove(e, this.refs.dataViewPort);
   };
 
   doTouchStart = (e) => {
@@ -86,23 +85,23 @@ export class DataViewPort extends Component {
     }
   };
   doTouchMove = (e) => {
-    this.props.onTouchMove(e, this.dataViewPortRef.current);
+    this.props.onTouchMove(e, this.refs.dataViewPort);
   };
 
   componentDidMount() {
-    this.dataViewPortRef.current.scrollLeft = 0;
+    this.refs.dataViewPort.scrollLeft = 0;
   }
 
   render() {
-    if (this.dataViewPortRef.dataViewPort) {
-      this.dataViewPortRef.current.scrollLeft = this.props.scrollLeft;
-      this.dataViewPortRef.current.scrollTop = this.props.scrollTop;
+    if (this.refs.dataViewPort) {
+      this.refs.dataViewPort.scrollLeft = this.props.scrollLeft;
+      this.refs.dataViewPort.scrollTop = this.props.scrollTop;
     }
 
     let height = this.getContainerHeight(this.props.data.length);
     return (
       <div
-        ref={this.dataViewPortRef}
+        ref="dataViewPort"
         id="timeLinedataViewPort"
         className="timeLine-main-data-viewPort"
         onMouseDown={this.doMouseDown}
