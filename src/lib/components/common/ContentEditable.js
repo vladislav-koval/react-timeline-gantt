@@ -7,6 +7,7 @@ export default class ContentEditable extends Component {
       editing: false,
       value: this.props.value
     };
+    // this.textInputRef = React.createRef();
   }
 
   componentDidUpdate(prevProps, prevState) {

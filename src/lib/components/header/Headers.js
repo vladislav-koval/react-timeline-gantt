@@ -9,7 +9,6 @@ import './Header.css';
 export class HeaderItem extends PureComponent {
   constructor(props) {
     super(props);
-    this.headerRef = React.createRef();
   }
   render() {
     return (
@@ -35,6 +34,7 @@ export default class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.setBoundaries();
+    this.headerRef = React.createRef();
   }
 
   getFormat(mode, position) {
@@ -191,7 +191,7 @@ export default class Header extends PureComponent {
   };
 
   render() {
-    if (this.headerRef) this.headerRef.current.scrollLeft = this.props.scrollLeft;
+    if (this.headerRef.current) this.headerRef.current.scrollLeft = this.props.scrollLeft;
     //Check boundaries to see if wee need to recalcualte header
     // if (this.needToRender()|| !this.cache){
     //     this.cache=this.renderHeader();
