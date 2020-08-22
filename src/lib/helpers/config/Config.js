@@ -31,7 +31,7 @@ const defvalues = {
   },
   taskList: {
     title: {
-      label: 'Projects',
+      label: 'Этапы',
       style: {
         backgroundColor: '#333333',
         borderBottom: 'solid 1px silver',
